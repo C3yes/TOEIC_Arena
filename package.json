@@ -1,0 +1,21 @@
+// Remplace l'API "room" de claude.ai par le serveur Node (même interface : join, presence, peers, onPeers, leave).
+(function(){
+ if(window.claude)return;
+ const rid=()=>Math.random().toString(36).slice(2,12);
+ window.claude={use:async n=>n!=="room"?null:{join:async name=>{
+  const id=rid(),qs="room="+encodeURIComponent(name)+"&id="+id;let mine={},list=[],hs=[];
+  const snap=()=>(list.some(p=>p.id===id)?list:[...list,{id,presence:mine}]).map(p=>({peer:p.id,by:null,isMe:p.id===id,sameTab:p.id===id,kind:"viewer",guest:false,presence:p.id===id?mine:p.presence}));
+  const fire=()=>{const s=snap();hs.forEach(f=>f({peers:s,joined:[],left:[],updated:[]}))};
+  const post=b=>fetch("/presence?"+qs,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(b)}).catch(()=>{});
+  const es=new EventSource("/events?"+qs);
+  es.onmessage=e=>{list=JSON.parse(e.data);fire()};
+  await new Promise((ok,no)=>{let t=setTimeout(()=>{es.close();no(new Error("timeout"))},10000);
+   es.onopen=()=>{clearTimeout(t);post(mine);ok()}});
+  es.onopen=()=>post(mine);
+  return{name,
+   presence:async p=>{for(const k in p){if(p[k]===null)delete mine[k];else mine[k]=p[k]}post(p);fire()},
+   peers:snap,
+   onPeers:f=>{hs.push(f);setTimeout(()=>f({peers:snap(),joined:[],left:[],updated:[]}));return()=>{hs=hs.filter(x=>x!==f)}},
+   leave:async()=>{es.close()}};
+ }}};
+})();

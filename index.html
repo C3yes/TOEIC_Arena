@@ -1,0 +1,32 @@
+// Banque de questions : P5 (n5 = notion de chaque question), P6 et P7 (n = notions par blanc/question)
+const P5=[
+{q:"The manager asked all employees to submit their reports ------ Friday.",o:["by","since","during","among"],e:"« by + échéance » = au plus tard à cette date."},
+{q:"Ms. Lee is ------ for coordinating the annual conference.",o:["responsible","responsibly","responsibility","responsive"],e:"Après « is », il faut un adjectif : responsible for."},
+{q:"------ the heavy rain, the outdoor event went ahead as planned.",o:["Despite","Although","Because","However"],e:"Despite + groupe nominal. Although exige un sujet + verbe."},
+{q:"The new software is significantly ------ than the previous version.",o:["faster","fast","fastest","quickly"],e:"Comparatif (than) : faster."},
+{q:"Please contact HR if you have any ------ about your benefits.",o:["inquiries","inquire","inquiring","inquired"],e:"Après « any », un nom (pluriel ici) : inquiries."},
+{q:"All visitors must ------ in at the front desk upon arrival.",o:["sign","signed","signing","signature"],e:"Après un modal (must), verbe à l’infinitif sans to."},
+{q:"The company’s profits increased ------ last quarter.",o:["considerably","considerable","consider","considering"],e:"Un adverbe modifie le verbe « increased »."},
+{q:"Mr. Tanaka will retire ------ thirty years of service.",o:["after","while","but","so"],e:"After + groupe nominal (« after thirty years »)."},
+{q:"The shipment was delayed ------ a mechanical problem.",o:["due to","because","so that","owing"],e:"Due to + nom. Because s’utilise avec un sujet + verbe."},
+{q:"Employees ------ wish to attend the workshop should register online.",o:["who","whom","whose","which"],e:"Pronom relatif sujet pour des personnes : who."}];
+const n5=["prep","pos","conj","comp","pos","verb","pos","prep","conj","rel"];
+const P6=[
+{t:"To: All Staff\nSubject: Office renovation\n\nDear colleagues,\nThe third floor [1] next week for renovation. During this time, employees will be moved to the second floor. Please [2] your personal belongings by Friday. [3] you have any questions, please contact Ms. Park in Facilities.\nThank you for your patience.",
+qs:[{q:"Blanc (1)",o:["will be closed","closes","closing","has closed"],e:"« next week » + passif : will be closed."},
+{q:"Blanc (2)",o:["pack","packed","packing","packs"],e:"Impératif après « Please » : pack."},
+{q:"Blanc (3)",o:["If","Unless","Despite","Whereas"],e:"« If you have any questions » : formule classique."}],n:["verb","verb","conj"]},
+{t:"Notice to customers\n\nStarting June 1, Greenway Market will extend its opening hours. The store will be open from 7 A.M. to 10 P.M. [1] This change responds to customer feedback. [2], the delivery service will remain unchanged. We hope the new schedule will be more [3] for you.",
+qs:[{q:"Blanc (1) : quelle phrase insérer ?",o:["The change applies to all seven days of the week.","The market was founded in 1990.","Our staff will be hired next year.","Parking is prohibited."],e:"La phrase doit prolonger l’info sur les horaires."},
+{q:"Blanc (2)",o:["However","Therefore","For instance","Otherwise"],e:"Contraste : horaires changent, mais la livraison reste inchangée."},
+{q:"Blanc (3)",o:["convenient","convenience","conveniently","convene"],e:"« be more + adjectif » : convenient."}],n:["insert","conj","pos"]}];
+const P7=[
+{t:"Brightline Telecom: Customer Service Representative\n\nBrightline Telecom is seeking a full-time Customer Service Representative for its Lyon office. Responsibilities include answering calls, resolving billing issues, and recording feedback. Applicants must have at least two years of experience in customer support and be fluent in English and French. Experience with CRM software is preferred but not required.\nInterested candidates should send a résumé and cover letter to jobs@brightline.example by March 15. Selected candidates will be contacted for an interview within two weeks.",
+qs:[{q:"What is the purpose of the advertisement?",o:["To recruit an employee","To promote a product","To announce a new service","To report customer feedback"],e:"L’annonce cherche à recruter un Customer Service Representative."},
+{q:"What is NOT required of applicants?",o:["Experience with CRM software","Two years of experience","Fluency in English and French","A résumé"],e:"CRM est « preferred but not required »."},
+{q:"What will happen after March 15?",o:["Some candidates will be invited to interview","All applicants will be hired","The office will move","Applicants will start training"],e:"Les candidats retenus seront contactés pour un entretien."}],n:["gist","detail","infer"]},
+{t:"MEMO\nTo: All Department Heads\nFrom: Daniel Ortiz, Operations\nDate: October 3\nSubject: Parking changes\n\nBeginning October 14, the east parking lot will be closed for repaving. The work is expected to last two weeks. Employees may use the temporary lot on Cedar Street, and a free shuttle will run every ten minutes between the lot and the main entrance from 7:30 to 9:30 A.M. and 4:30 to 6:30 P.M.\nDepartment heads are asked to share this information with their teams by October 7.",
+qs:[{q:"Why was the memo written?",o:["To announce a temporary parking change","To request a budget","To introduce a new employee","To cancel a meeting"],e:"Le parking est fermé temporairement pour travaux."},
+{q:"What are department heads asked to do?",o:["Inform their teams","Repave the lot","Drive the shuttle","Reply to Mr. Ortiz"],e:"« asked to share this information with their teams »."},
+{q:"When will the east lot most likely reopen?",o:["Around October 28","October 7","October 14","In November"],e:"Début 14 octobre + deux semaines = environ 28 octobre."}],n:["gist","detail","infer"]}];
+
